@@ -25,14 +25,12 @@ public class Load {
         query.connect();
 
         final TS3Api api = query.getApi();
-        api.login("querka", "F14DakiZ"); //localhost
+        api.login("login", "password"); //localhost
         api.selectVirtualServerById(1);
         api.setNickname("Querka");
         System.out.println("Querka ON");
         config.setFloodRate(TS3Query.FloodRate.UNLIMITED);
         config.setDebugLevel(Level.ALL);
-        api.setClientChannelGroup(2560, 19211,11604);
-
         api.registerAllEvents();
 
         final int clientId = api.whoAmI().getId();
@@ -65,7 +63,7 @@ public class Load {
                         who = odp.replaceAll("\\d","");
 
                         odp = e.getMessage().substring(5);
-                        amount = odp.replaceAll("[^\\d.]", ""); // usuwa wszystkie gowna xd
+                        amount = odp.replaceAll("[^\\d.]", "");
                         api.sendChannelMessage("[b]Dodałem: " + who + amount + " [color=red]punktów[/color].");
                         try {
                             sql.addpkt();
@@ -85,7 +83,7 @@ public class Load {
                         who = odp.replaceAll("\\d","");
 
                         odp = e.getMessage().substring(8);
-                        amount = odp.replaceAll("[^\\d.]", ""); // usuwa wszystkie gowna xd
+                        amount = odp.replaceAll("[^\\d.]", "");
                         api.sendChannelMessage("[b]Usunołem: " + who + amount + " [color=red]punktów[/color].");
                         try {
                             sql.removepkt();
